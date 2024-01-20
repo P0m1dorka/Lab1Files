@@ -1,7 +1,7 @@
 import pathlib
 
 
-def search_files(dir:str, name:str, inDirDir:bool = 0, rash:str = " ", name_rash:str= ""):
+def search_files(dir:str, name:str, inDirDir:bool = 0, rash:str = " ", name_rash:str=""):
     print(")___(")
     path = pathlib.Path(dir)
     files = list()
