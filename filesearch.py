@@ -1,13 +1,39 @@
 import pathlib
 
 
-def search_files(dir:str, name:str, inDirDir:bool = 0, rash:str = " ", name_rash:str=""):
+def search_files(dir:str, recursive:bool, rash:str ='*',name:str='*'):
     print(")___(")
-    path = pathlib.Path(dir)
     files = list()
-    for child in path.glob(name+'.*'):
+    if(rash != '' and name != ''):
+        if(recursive):
+            print("recursive")
+            recursive_find(dir,files,name,rash)
+        else:
+            print("no recursive")
+            no_recursive_find(dir,name,rash,files)
+    
+    
+def recursive_find(dir:str,massive:list,name:str='*', rash:str='*'):
+    print("rec_find")
+    searchable = name + '.' + rash
+    path = pathlib.Path(dir)
+    for child in path.rglob(searchable):
         print(child)
-    print("Hello world")
+    print("End")
+    
+    
+def no_recursive_find(dir:str,name:str='*', rash:str='*',massive:list=[]):
+    searchable = name + '.' + rash
+    path = pathlib.Path(dir)
+    for child in path.glob(searchable):
+        print(child)
+    print("End")
+    
+    
+    
+    
+    
+    
 
 
 
