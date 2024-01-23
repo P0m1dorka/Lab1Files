@@ -19,21 +19,25 @@ def recursive_find(dir:str,massive:list,name:str='*', rash:str='*'):
     path = pathlib.Path(dir)
     for child in path.rglob(searchable):
         print(child)
-    print("End")
-    
-    
-def no_recursive_find(dir:str,name:str='*', rash:str='*',massive:list=[]):
-    searchable = name + '.' + rash
-    path = pathlib.Path(dir)
-    for child in path.glob(searchable):
-        print(child)
-    print("End")
+
     
     
     
     
     
     
+
+ 
+
+searching_directory = pathlib.Path()       
+def search_dir(dirname_part: str, path: searching_directory, recursive: bool):
+    directories = []
+    if recursive:
+        for directory in Path(path).rglob(f"{dirname_part}"):
+            directories.append(directory) 
+    elif not recursive:
+        for directory in Path(path).glob(f"{dirname_part}"):
+            directories.append(directory)
 
 
 
