@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.idea",
+    "\\test_dir",
+    "\\test_dir\\AB",
+    "\\test_dir\\None",
+    "\\test_dir\\second",
+    "\\__pycache__"
+  ],
+  "SelectedNode": "\\filesearch.py",
+  "PreviewInSolutionExplorer": false
+}

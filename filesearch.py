@@ -1,4 +1,5 @@
 import pathlib
+from pathlib import Path
 
 
 def search_files(dir:str, recursive:bool, rash:str ='*',name:str='*'):
@@ -41,24 +42,23 @@ def no_recursive_find(dir:str,massive:list,name:str='*', rash:str='*'):
     for child in path.glob(searchable):
         print(child)
         massive.append(child)
-    
-    
-    
-    
-    
-    
+      
 
- 
 
-searching_directory = pathlib.Path()       
-def search_dir(dirname_part: str, path: searching_directory, recursive: bool):
+def append_dir(a: str, b: list):
+    if a.is_dir():
+        b.append(a)
+    return b 
+    
+    
+def search_dir(dirname_part: str, path: Path, recursive: bool) -> list[Path]:
     directories = []
     if recursive:
-        for directory in Path(path).rglob(f"{dirname_part}"):
-            directories.append(directory) 
+        for directory in path.rglob(f"{dirname_part}"):
+            append_dir(directory, directories)
     elif not recursive:
-        for directory in Path(path).glob(f"{dirname_part}"):
-            directories.append(directory)
+        for directory in path.glob(f"{dirname_part}"):
+            append_dir(directory, directories)
 
 
 
