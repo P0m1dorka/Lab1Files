@@ -20,3 +20,5 @@ if __name__ == '__main__':
     filesearch.search_files('/home/SherseLyaFam/ProgProjects/Python/Lab1/test_dir',0) 
      """
     filesearch.search_dir('*','/home/SherseLyaFam/ProgProjects/Python/Lab1/test_dir',True)
+    print("ppppppp")
+    filesearch.search_dir('*','/home/SherseLyaFam/ProgProjects/Python/Lab1/test_dir',False)
