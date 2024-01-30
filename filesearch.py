@@ -51,14 +51,22 @@ def append_dir(a: str, b: list):
     return b 
     
     
-def search_dir(dirname_part: str, path: Path, recursive: bool) -> list[Path]:
+def search_dir(dirname_part: str, path: str, recursive: bool) -> list[Path]:
     directories = []
+    pt1 = pathlib.Path(path)
     if recursive:
-        for directory in path.rglob(f"{dirname_part}"):
+        for directory in pt1.rglob(dirname_part):
             append_dir(directory, directories)
     elif not recursive:
-        for directory in path.glob(f"{dirname_part}"):
+        for directory in pt1.glob(dirname_part):
             append_dir(directory, directories)
+            
+    for p in directories:
+        print(p)
+    return directories
+            
+    
+    
 
 
 
